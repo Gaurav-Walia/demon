@@ -1,5 +1,6 @@
 var tempResult = large = groupByIp = {};
 var result = ipReject = ipAllow = [];
+var temp = 0;
 var _ = require("underscore");
 let clicksData = require('./clicks.json');
 
@@ -15,7 +16,7 @@ module.exports = function () {
 
     // Remove ipReject from clicksData
     ipAllow = clicksData.filter(x => !ipReject.includes(x));
-    console.log(`IP Allow: ${JSON.stringify(ipAllow)}`);
+    // console.log(`IP Allow: ${JSON.stringify(ipAllow)}`);
 
     // Add hour element in clicksData JSON
     for (var i = 0; i < ipAllow.length - 1; i++) {
@@ -25,7 +26,7 @@ module.exports = function () {
     // Find most expensive click among clicks list
     tempResult = ipAllow[0];
     for (var j = 0; j < ipAllow.length-1; j++) {
-        if (tempResult.hour == ipAllow[j+1].hour) {
+        if (ipAllow[j].hour == ipAllow[j+1].hour) {
             if (tempResult.amount < ipAllow[j+1].amount) {
                 tempResult = ipAllow[j+1];
                 large = tempResult; temp = 1;
@@ -35,10 +36,12 @@ module.exports = function () {
             if (temp == 0) {
                 if (ipAllow[j].hour != ipAllow[j+1].hour) {
                     result.push(tempResult);
-                }
+                    console.log(JSON.stringify(result));
+                } 
             } else {
                 result.push(large);
                 temp = 0;
+                console.log(JSON.stringify(result));
             }
         }
     }  
