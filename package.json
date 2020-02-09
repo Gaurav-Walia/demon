@@ -1,11 +1,11 @@
 {
   "name": "gartner",
   "version": "1.0.0",
-  "description": "ip_clicks",
+  "description": "This application is used to select clicks based on certain parameters",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "npm run test"
+    "test": "mocha"
   },
   "author": "Gaurav Walia",
   "license": "ISC",
@@ -14,5 +14,10 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "underscore": "^1.9.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-fs": "^2.0.0",
+    "mocha": "^7.0.1"
   }
 }

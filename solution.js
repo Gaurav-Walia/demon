@@ -36,12 +36,10 @@ module.exports = function () {
             if (temp == 0) {
                 if (ipAllow[j].hour != ipAllow[j+1].hour) {
                     result.push(tempResult);
-                    console.log(JSON.stringify(result));
                 } 
             } else {
                 result.push(large);
                 temp = 0;
-                console.log(JSON.stringify(result));
             }
         }
     }  

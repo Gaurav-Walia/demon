@@ -8,12 +8,12 @@ var fs = require('fs');
 // Convert output from solution.js to JSON object
 var jsonObject = JSON.stringify(expensive);
 
-// Writing output to output.json file
-fs.writeFile('./output.json', jsonObject, "utf8", (error) => {
+// Writing output to resultset.json file
+fs.writeFile('./resultset.json', jsonObject, "utf8", (error) => {
     if(error) {
         return console.log(error);
     }
-    console.log('Writing to file >> output.json');
+    console.log('Writing to file >> resultset.json');
 })
 
 app.listen((process.env.PORT || 3000), () => {
